@@ -8,11 +8,13 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
 import com.gt22.jdaenchacer.data.tags.DataBase;
 import com.gt22.jdaenchacer.data.tags.DataStorage;
+import com.gt22.jdaenchacer.utils.FileUtils;
 
 public class DataJson
 {
-	public static void write(File f, DataBase base) throws IOException
+	public static void write(File f, DataBase<?> base) throws IOException
 	{
+		FileUtils.initFile(f);
 		FileWriter w = new FileWriter(f);
 		w.write(new GsonBuilder().setPrettyPrinting().create().toJson(base.toJson()));
 		w.close();

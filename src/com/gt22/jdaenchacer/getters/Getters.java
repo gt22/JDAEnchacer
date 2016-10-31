@@ -2,8 +2,7 @@ package com.gt22.jdaenchacer.getters;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
+
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.entities.Guild;
 import net.dv8tion.jda.entities.TextChannel;
@@ -12,12 +11,12 @@ import net.dv8tion.jda.entities.VoiceChannel;
 
 public class Getters
 {
-	public static User getUser(@NotNull String name, @NotNull String discriminator, @NotNull JDA bot)
+	public static User getUser( String name, String discriminator, JDA bot)
 	{
 		return bot.getUsersByName(name).stream().filter((user) -> user.getDiscriminator().equals(discriminator)).findFirst().orElse(null);
 	}
 	
-	public static Wrapper<User> getUser(@NotNull String from, @NotNull JDA bot)
+	public static Wrapper<User> getUser(String from, JDA bot)
 	{
 		User usr = bot.getUserById(from);
 		if (usr == null)
@@ -56,7 +55,7 @@ public class Getters
 		return new Wrapper<User>();
 	}
 	
-	public static Wrapper<TextChannel> getTextChannel(@NotNull String from, @Nullable Guild guild, @NotNull JDA bot)
+	public static Wrapper<TextChannel> getTextChannel(String from, Guild guild, JDA bot)
 	{
 		TextChannel chan = bot.getTextChannelById(from);
 		if(chan == null)
@@ -70,7 +69,7 @@ public class Getters
 			return new Wrapper<TextChannel>(chan);
 		}
 	}
-	public static Wrapper<VoiceChannel> getVoiceChannel(@NotNull String from, @Nullable Guild guild, @NotNull JDA bot)
+	public static Wrapper<VoiceChannel> getVoiceChannel(String from, Guild guild, JDA bot)
 	{
 		VoiceChannel chan = bot.getVoiceChannelById(from);
 		if(chan == null)
@@ -85,7 +84,7 @@ public class Getters
 		}
 	}
 	
-	public static Wrapper<Guild> getGuild(@NotNull String from, @NotNull JDA bot)
+	public static Wrapper<Guild> getGuild(String from, JDA bot)
 	{
 		Guild guild = bot.getGuildById(from);
 		if(guild == null)

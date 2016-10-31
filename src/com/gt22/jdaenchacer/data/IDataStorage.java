@@ -10,8 +10,8 @@ import com.gt22.jdaenchacer.data.tags.DataString;
 
 public interface IDataStorage
 {
-	public void setData(String key, DataBase data);
-	public DataBase getData(String key);
+	public void setData(String key, DataBase<?>data);
+	public DataBase<?> getData(String key);
 	public boolean hasData(String key);
 	public void removeData(String key);
 	

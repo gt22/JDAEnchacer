@@ -1,9 +1,8 @@
 package com.gt22.jdaenchacer.command;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import com.gt22.jdaenchacer.command.Command.CommandAction;
+
 import net.dv8tion.jda.entities.Guild;
 import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.entities.User;

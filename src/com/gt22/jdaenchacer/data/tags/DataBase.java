@@ -21,7 +21,7 @@ public abstract class DataBase<T>
 		return ret;
 	}
 
-	private static DataBase fromJson(JsonElement e)
+	private static DataBase<?> fromJson(JsonElement e)
 	{
 		if (e.isJsonObject())
 		{
@@ -97,7 +97,7 @@ public abstract class DataBase<T>
 		{
 			return false;
 		}
-		return value.equals(((DataBase) obj).value);
+		return value.equals(((DataBase<?>) obj).value);
 	}
 	
 }

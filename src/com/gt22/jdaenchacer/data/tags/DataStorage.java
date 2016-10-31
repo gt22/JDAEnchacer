@@ -5,12 +5,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.gt22.jdaenchacer.data.IDataStorage;
 
-public class DataStorage extends DataBase<HashMap<String, DataBase>> implements IDataStorage
+public class DataStorage extends DataBase<HashMap<String, DataBase<?>>> implements IDataStorage
 {
 
 	public DataStorage()
 	{
-		super(new HashMap<String, DataBase>());
+		super(new HashMap<String, DataBase<?>>());
 	}
 
 	/**
@@ -18,19 +18,19 @@ public class DataStorage extends DataBase<HashMap<String, DataBase>> implements 
 	 */
 	@Override
 	@Deprecated
-	public HashMap<String, DataBase> getValue()
+	public HashMap<String, DataBase<?>> getValue()
 	{
 		throw new UnsupportedOperationException("Use getData");
 	}
 	
 	@Override
-	public void setData(String key, DataBase data)
+	public void setData(String key, DataBase<?>data)
 	{
 		value.put(key, data);
 	}
 
 	@Override
-	public DataBase getData(String key)
+	public DataBase<?>getData(String key)
 	{
 		return value.get(key);
 	}

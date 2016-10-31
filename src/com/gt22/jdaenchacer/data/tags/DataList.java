@@ -5,24 +5,24 @@ import java.util.List;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
-public class DataList extends DataBase<List<DataBase>>
+public class DataList extends DataBase<List<DataBase<?>>>
 {
 	public DataList()
 	{
-		super(new ArrayList<DataBase>());
+		super(new ArrayList<DataBase<?>> ());
 	}
 	
-	public DataBase get(int idx)
+	public DataBase<?> get(int idx)
 	{
 		return value.get(idx);
 	}
 	
-	public void add(DataBase data)
+	public void add(DataBase<?> data)
 	{
 		value.add(data);
 	}
 	
-	public void set(int idx, DataBase data)
+	public void set(int idx, DataBase<?> data)
 	{
 		value.set(idx, data);
 	}
@@ -32,12 +32,12 @@ public class DataList extends DataBase<List<DataBase>>
 		value.remove(idx);
 	}
 	
-	public void remove(DataBase data)
+	public void remove(DataBase<?> data)
 	{
 		value.remove(data);
 	}
 	
-	public boolean contains(DataBase data)
+	public boolean contains(DataBase<?> data)
 	{
 		return value.contains(data);
 	}

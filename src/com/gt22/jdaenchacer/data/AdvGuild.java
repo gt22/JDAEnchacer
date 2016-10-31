@@ -32,13 +32,13 @@ public class AdvGuild extends DataWrapperBase<Guild>
 		return getTag("channels").getList("blacklist");
 	}
 	
-	public void addBlacklistedChannel(String id) throws IOException
+	public void addBlacklistedChannel(String id)
 	{
 		getBlacklistedChannels().add(new DataString(id));
 		saveToFile();
 	}
 	
-	public void removeBlacklistedChannel(String id) throws IOException
+	public void removeBlacklistedChannel(String id)
 	{
 		getBlacklistedChannels().remove(new DataString(id));
 		saveToFile();
@@ -61,13 +61,13 @@ public class AdvGuild extends DataWrapperBase<Guild>
 		return getTag("channels").getList("whitelist");
 	}
 	
-	public void addWhitelistedChannel(String id) throws IOException
+	public void addWhitelistedChannel(String id)
 	{
 		getWhitelistedChannels().add(new DataString(id));
 		saveToFile();
 	}
 	
-	public void removeWhitelistedChannel(String id) throws IOException
+	public void removeWhitelistedChannel(String id)
 	{
 		getWhitelistedChannels().remove(new DataString(id));
 		saveToFile();
@@ -90,13 +90,13 @@ public class AdvGuild extends DataWrapperBase<Guild>
 		return getTag("channels").getList("botonly");
 	}
 	
-	public void addBotonlyChannel(String id) throws IOException
+	public void addBotonlyChannel(String id) 
 	{
 		getBotonlyChannels().add(new DataString(id));
 		saveToFile();
 	}
 	
-	public void removeBotonlyChannel(String id) throws IOException
+	public void removeBotonlyChannel(String id)
 	{
 		getBotonlyChannels().remove(new DataString(id));
 		saveToFile();
