@@ -8,6 +8,7 @@ public class HelpCommand extends Command
 	public HelpCommand(String name, String shortname, String desc, String syntax, CommandAction nonadminaction, int level, CommandManager manager, Function<List<Command>, String> listFormater, Function<Command, String> commandFormater, String commandNotFoundReply)
 	{
 		super(name, shortname, desc, syntax, (msg, args, guild) -> {
+			System.out.println(args.length);
 			if(args.length == 0)
 			{
 				msg.getChannel().sendMessage(listFormater.apply(manager.getCommands()));

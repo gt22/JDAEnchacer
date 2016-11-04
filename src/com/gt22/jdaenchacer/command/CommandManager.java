@@ -13,23 +13,30 @@ public class CommandManager
 	{
 		public boolean canUse(User user, Command command);
 	}
+	
+	public static interface OnCommandUse
+	{
+		public void onUse(Command c, String[] args, User sender);
+	}
 
 	private final CanUseCommand canUse;
+	private final OnCommandUse onCommandUse;
 	private final boolean storeLists;
 	private final String mention;
 	private final List<ICommandList> commandLists;
 	private final List<Command> commands = new ArrayList<Command>();
-	public CommandManager(CanUseCommand canUse, String mention)
+	public CommandManager(CanUseCommand canUse, String mention, OnCommandUse onCommandUse)
 	{
-		this(canUse, mention, true);
+		this(canUse, mention, true, onCommandUse);
 	}
 
-	public CommandManager(CanUseCommand canUse, String mention, boolean storeLists)
+	public CommandManager(CanUseCommand canUse, String mention, boolean storeLists, OnCommandUse onCommandUse)
 	{
 		this.canUse = canUse;
 		this.mention = mention;
 		this.storeLists = storeLists;
 		this.commandLists = storeLists ? new ArrayList<ICommandList>() : null;
+		this.onCommandUse = onCommandUse;
 	}
 
 	public void addCommandList(ICommandList list)
@@ -110,6 +117,7 @@ public class CommandManager
 		}
 		else
 		{
+			onCommandUse.onUse(cm, args, usr);
 			if (canUse.canUse(usr, cm))
 			{
 				cm.action.performCommand(msg, args, guild);
